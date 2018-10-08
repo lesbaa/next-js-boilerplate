@@ -1,0 +1,77 @@
+<div id="nacionalitat_graph"></div>
+<script>
+    data = {{ nationality_data |safe }};
+    make_viz_nacionalitat(data);
+
+    var es_ES = {
+        "decimal": ",",
+        "thousands": ".",
+        "grouping": [3],
+        "currency": ["€", ""],
+        "dateTime": "%a %b %e %X %Y",
+        "date": "%d/%m/%Y",
+        "time": "%H:%M:%S",
+        "periods": ["AM", "PM"],
+        "days": ["Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"],
+        "shortDays": ["Dom", "Lun", "Mar", "Mi", "Jue", "Vie", "Sab"],
+        "months": ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"],
+        "shortMonths": ["Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Ago", "Sep", "Oct", "Nov", "Dic"]
+    };
+
+    var es_delt = d3.locale(es_ES);
+
+    var numberFormat = es_delt.numberFormat(",.0f");
+
+    // instantiate d3plus
+    function make_viz_nacionalitat(data){
+        var visualization = d3plus.viz()
+            .container("#nacionalitat_graph")  // container DIV to hold the visualization
+            .data(data)
+            .type("bar")
+            .id("Nacionalitat")
+            .x({
+                "value": "Total",
+                "grid": false
+            })
+            .y({
+                "value": "Nacionalitat",
+                "scale": "discrete",
+                "grid": false
+            })
+            .order("Total")
+            .text("Nacionalitat")
+            .color('color')
+            .labels({
+                "text": "Total",
+                "resize": false,
+                "font": {"size": 14}
+            })
+            .legend(false)
+            .tooltip({
+                "share": true,
+                "value": ["Total"]
+            })
+            .format({
+                "text": function(text,key){
+                    return text
+                },
+                "number": function(number, params) {
+                    return numberFormat(number);
+                }
+            })
+            .font({ "family": "Raleway",
+                "size": 14,
+                "color": "black"
+            })
+            .title({
+                value: "Nacionalitats estrangeres a Deltebre",
+                "font": {"size": 18}
+            })
+            .time({
+            "value": "Any",
+            "solo": 2017
+            })
+            .timeline({"align": "middle"})
+            .draw()
+    }
+</script>

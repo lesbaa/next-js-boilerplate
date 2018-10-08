@@ -1,0 +1,1303 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' />
+
+    <title>Deltebre</title>
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="author" content="" />
+
+    <link href="https://fonts.googleapis.com/css?family=Raleway:100,400,600i,700" rel="stylesheet">
+    <!--<link href="https://fonts.googleapis.com/css?family=Pathway+Gothic+One" rel="stylesheet">-->
+
+    <script src="https://d3plus.org/js/d3.js"></script>
+    <script src="https://d3plus.org/js/d3plus.js"></script>
+    <script src="../static/assets/js/jquery.min.js"></script>
+    <script src="../static/assets/js/highcharts.js"></script>
+    <script src="../static/assets/js/modules/sunburst.js"></script>
+    <script src="../static/assets/js/modules/exporting.js"></script>
+    <script src="../static/assets/js/html2canvas.min.js"></script>
+
+    <link rel="shortcut icon" href="../static/assets/images/favicon.ico">
+
+    <link rel="stylesheet" type="text/css" href="../static/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../static/assets/css/pe-icon-7-stroke.css">
+    <link rel="stylesheet" type="text/css" href="../static/assets/css/icons.css"/>
+
+    <link rel="stylesheet" type="text/css" href="../static/assets/css/menu.css">
+    <link rel="stylesheet" type="text/css" href="../static/assets/css/style.css"/>
+
+    <link href="https://fonts.googleapis.com/css?family=Raleway:100,400,700" rel="stylesheet">
+    <style>
+        #ocells {
+            /*width: 100%;*/
+            height: auto;
+            /* Magic! */
+            max-width: 14vw;
+            border-radius: 50%;
+            display: block;
+
+        }
+    </style>
+</head>
+
+<body>
+
+<header id="topnav" class="defaultscroll fixed-top sticky darkheader">
+    <div class="container">
+        <div class="menu-extras">
+            <div class="menu-item">
+                <a class="navbar-toggle">
+                    <div class="lines">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div id="navigation">
+            <ul class="navigation-menu">
+                <li class="has-submenu active">
+                    <a href="#home">
+                        <i class="pe-7s-home"></i>
+                        Inici
+                    </a>
+                </li>
+                <li class="has-submenu">
+                    <a href="#about">
+                        <i class="pe-7s-leaf"></i>
+                        Deltebre
+                    </a>
+                </li>
+                <li class="has-submenu">
+                    <a href="#graph1">
+                        <i class="pe-7s-map-2"></i>
+                        Territori
+                    </a>
+                </li>
+                <li class="has-submenu">
+                    <a href="#graph2">
+                        <i class="pe-7s-users"></i>
+                        Població
+                    </a>
+                </li>
+                <li class="has-submenu">
+                    <a href="#graph3">
+                        <i class="pe-7s-bicycle"></i>
+                        Serveis i poble
+                    </a>
+                </li>
+                <li class="has-submenu">
+                    <a href="#graph4">
+                        <i class="pe-7s-graph1"></i>
+                        Economia
+                    </a>
+                </li>
+                <li class="has-submenu">
+                    <a href="#graph5">
+                        <i class="pe-7s-culture"></i>
+                        Administració
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</header>
+
+<section class="section bg-home height-100" id="home">
+    <div class="bg-overlay"></div>
+    <div class="home-center">
+        <div class="home-desc-center">
+            <div class="container home">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <svg style="margin-bottom: 10px" xmlns="http://www.w3.org/2000/svg" width="50" height="48" viewBox="0 0 151.1 147.1"><path d="M115.8 0c1.6 2.9 4.4 4 7.2 5.5 6.2 3.2 11.1 8.1 15.7 13.6 5.4 6.4 8.4 13.1 10.2 20.9 1.2 5.4 1.6 10.9 1.8 16.3 1.1 29.2-0.8 58.2-4.4 87.1 -0.5 3.7-1.7 4.6-5.1 3.1 -1.7-0.7-3.5-1.1-5.2-1.6 0.1-4-0.3-8-1.3-11.9 -2.5-13-7.4-25.1-13.6-36.8 -1.9-3.6-3.3-4.4-6.9-2 -5.9 3.9-11.6 8.3-18.4 10.9 -2.5 0.1-2.5 2.8-4 3.9 -1.3-0.6-2.2-1-3.8 0.1 -2.1 1.4-3.5 3.9-6.2 4.4 -0.2-0.9-0.5-1.7-0.7-2.6 1.7-3.9 3.3-7.9 5-11.8 0.6-0.1 1.4-0.2 1.5-1 0.5-6 3.7-10.4 8.4-13.9 1-1.3 2-2.6 3-4 2.2-1.7 3.3-4.1 4.9-6.8 -4.2 0.4-5.7 2.9-7.1 5.6 -2.1 1.3-3.9 3.1-5.5 5 -2.5 4.6-8.6 7.2-7.5 13.7 -1.3 1.7-2.6 3.4-4 5 -0.7 0.8-1.2 2.3-2.6 1.8 -1.4-0.5-0.7-2-0.9-3.1 0-0.4 0-0.7 0.1-1.1 -0.2 0.2-0.4 0.4-0.5 0.6 -2.3 0.8-4.5 2.3-7.1 1.2 1.9-7.6 8.5-12.2 11.9-18.7 -6.6 0.3-9 6.2-13.1 9.9 -2.4-3.3 2.6-7-1.8-9.3 0-0.3 0.1-0.7 0.1-1 2-3.6 3.3-7.5 4-11.6 4.2-3.5-2.5-2.5-1.9-4.5 0.9-2.4 0.9-5.5 4.4-6.3 0.8-0.2 1.1-2.2 1.6-3.4 0.8-0.9 2.8-2.3 2.1-2.8 -5.5-3.6-0.1-5.1 1.2-7.4 2-3.7 7.5-5.4 6.5-10.9 0.2-0.1 0.3-0.2 0.5-0.3 -0.1 0-0.3 0-0.3 0 -0.1 0.1-0.1 0.3-0.1 0.4 -5.5-2.2-6.9-1.4-10.3 3.7 -2 3-0.3 7.3-3.5 9.5 -2.2 1.5-2.2 3.5-2.1 5.7 -0.8 1-1.5 2.2-2.5 3 -1.2 1-1.6 3.6-3.5 2.8 -1.9-0.8-0.6-2.9-0.8-4.5 3.9-4.7 3.9-4.7-1.3-5.8 -0.1 0-0.1-0.3-0.2-0.4 0-2.5 1.1-4.5 2.4-6.4 1.5-3.8 4.3-7 4.6-11.4 0.2-3.6 4.4-4.3 6.8-6.1 5.7-4.2 10-10 16.2-13.7 5.4-3.2 10.2-7.6 16.7-8.5 2.5-0.3 4.7-1.2 5.5-3.9C113.2 0 114.5 0 115.8 0zM100.8 17c3.1-0.1 3.1-3.5 5.2-4.8 1.3-0.3 2.9-0.2 3.5-2.1 -1.9-0.5-2.9 0.7-4.2 1.4 -2.3 1.2-5 2.2-4.5 5.6 -0.6-0.8-1-0.2-1.5 0.1 0 0 0 0.4 0.1 0.4C100.2 18 100.6 17.6 100.8 17zM121.8 59c-3.1-0.2-6 0.4-8.8 2.6 3.8 1 6.7 0.6 8.8-2.6 1.2 0.6 2.3 1.1 3.5 1.7 0.9 3.2 4.2 1.9 6.2 3 5.1 3 9 6.9 12.1 12 0-5-1.5-9.4-3-13.7 -0.6-1.7-1.9-3.3-3.7-2.5 -3.6 1.6-7.2 0.2-10.7 0.3C124.8 58.5 123.7 56.8 121.8 59zM103.3 62.5c-2.2 1.2-3.4 3-3 5.7 1.8-1.4 6.2-0.6 3.7-5 0.5-0.4 1.1-1.2 0.5-1.6C103.9 61 103.7 62.1 103.3 62.5zM142.1 26.7c-0.3-0.1-0.6-0.3-1-0.4 0.1 0.4 0.1 0.7 0.2 1.1 1.6 4.7 3.3 9.3 4.9 14C146.7 35.9 145.4 31 142.1 26.7zM88 77.2c2.2-2.3 6-3 6.9-6.6 1.8-2.2-0.2-4.3-1.2-5 -1.3-1-2.9 0.9-3.7 2.2 -1 1.5-2.8 2.4-3 4.4 -0.9 1.6-1.9 3.2-2.8 4.8 -2.3 1-3.7 2.4-3.2 5.4C83.6 80.4 86.6 79.9 88 77.2zM103.8 96c2.1-1.6 4.1-3.2 6.2-4.8 6.4-4.2 6.4-4.2 2-10.2 -0.3-2.2-1.9-3.6-2.9-5.6 -2.3 1.4-3.9 3.2-4.4 5.8 -2.3 2.5-0.9 6.2-3 8.7 -3 1.6-1.7 5-3.1 7.2 -0.7 0.9-1.3 2-2.3 2.6 -1.2 0.7-2 1.7-1.2 2.7 1.1 1.5 2.4 0.4 3.3-0.6C100.2 99.8 102 97.9 103.8 96zM114.9 29.1c4.9 2 11.5-4.9 15.4 2.8 6.2 0.8 9.6 5.3 13.4 9.5 -2.8-6.7-1.6-15.1-11.5-18.2 -7.3-2.3-14-1.3-17.5 5.7 -0.2 0.1-0.5 0.3-0.7 0.4 0.1 0.1 0.3 0.3 0.4 0.4C114.7 29.6 114.8 29.3 114.9 29.1zM114.7 79.1c2.8 4.1 5.7 5.4 11.1 3.3 9.6-3.6 13.5-1.2 17 8.3 1.2-3.8 0.1-10.8-2.4-15.3 -4.6-8.4-8.7-9.8-17.5-6.2 -4.6-1.7-8.4-0.8-11.1 3.5C109.6 76.4 113.4 77.2 114.7 79.1zM137.4 112.4c0.7-8.5 0.2-16.9-0.9-25.2 -0.2-1.7-0.6-4.1-3.3-3.1 -2.9 1.1-5.7 2.6-8.6 3.9 -1.3 0.6-1 1.5-0.3 2.4C129.7 97.1 133.9 104.5 137.4 112.4zM115.8 20c-6.2-1.4-22.1 9.4-22.4 15.7 4-5.1 9.7-1.9 14.3-3.9 0.6-0.3 1.7 0.4 2-0.7 0.1-0.4-0.1-1.1-0.4-1.2 -6-3.3-0.3-4.9 1.3-5.5C113 23.3 114.2 21.8 115.8 20zM130.2 47.4c10.3 5 12.7 13.9 15.4 22.7 0.3-4.1 0.3-8-0.4-12C143.5 48.1 142 46.8 130.2 47.4zM83.6 26.1c4.5-1.5 6.5-5.8 11-9.2C87.4 17.5 87.3 23.8 83.6 26.1zM85 62.9c4.9-4.2 5.1-4.8 4.1-9C87.3 56.8 84.2 58.6 85 62.9zM120.8 37.2c-6.7 0.2-7 0.4-8.5 4.4C115.8 42 116.9 38.6 120.8 37.2zM78.5 68.4c2.8-1.3 5.1-1.6 5.3-4.7C81.1 63.9 79.6 65.1 78.5 68.4z" fill="#E9C218"/><path d="M107.4 115.9c-4.1-3.3-8.5-6.3-11.5-10.9 -2.5 0.1-2.5 2.8-4 3.9 3.2 6.3 8.9 10.3 13.9 14.9 1.1 1 2.4 1.7 3.1 3 0 0-0.1 0.2-0.1 0.2 -9.3-1.6-17.6-5.7-26.1-9.6 -2.4-1.1-1.2-2.6-0.9-4.1 -0.2-0.9-0.5-1.7-0.7-2.6 -4.6 4.2-4.5 5.5 1.4 13 -8-1.8-13.2-6.8-17.4-12.8 -2.9-4.3 1-6.5 3.6-9 1.9-7.6 8.5-12.2 11.9-18.7 -6.6 0.3-9 6.2-13.1 9.9 -2.4-3.3 2.6-7-1.8-9.3 -0.3 0-0.6 0.1-0.9 0 -2.3 3.1-6 2-9 3 -0.3 0.3-0.7 0.7-1 1 -0.4 0.3-0.7 0.5-1.1 0.7 0 0-0.2-0.2-0.3-0.4 0.4-0.2 0.9-0.3 1.3-0.5 0.3-0.3 0.7-0.6 1-1 2.2-3.4 5.7-3 9-3 0 0 0 0 0 0 0.3 0 0.6 0 0.9 0 0-0.3 0.1-0.7 0.1-1 2-3.6 3.3-7.5 4-11.6 -0.3-1.4-1.7-1.3-2.6-1.8 -0.8-0.4-2.2-0.6-1.8-1.8 0.3-1 1.7-0.7 2.6-0.9 0.9-2.4 0.9-5.5 4.4-6.3 0.8-0.2 1.1-2.2 1.6-3.4 -1.3 0-2.7 0-4 0 0 0-0.2-0.1-0.2-0.1 0.1-1.3-0.5-1.9-1.8-2 -0.8 1-1.5 2.2-2.5 3 -1.2 1-1.6 3.6-3.5 2.8 -1.9-0.8-0.6-2.9-0.8-4.5 -2.1-0.6-3.8 0.1-5.6 1.1 -2.4 1.3-4.9 0.3-7.1-0.8 -1-0.5-1.4-1.7-0.8-3 1.2-2.6 3.4-3.5 6-3.5 2-0.1 4 0 5.9 0.1 0-2.5 1.1-4.5 2.4-6.4 -0.3-0.8-0.9-1.6-1.8-1.5 -6.4 0.8-13.2-2.4-19.1 2.6 -2.4 2-5.8 2.3-8.7 3.4 -10.5 3.8-20.4 8.3-28.4 16.9 -3.5 3.7-4.6 5-3.6 10.5 1.8 9.4 6.5 16.9 12 23.7 5.5 6.8 13.3 11.3 21.5 14.9 19.2 8.3 39.2 14.5 59.3 20.3 14.1 4.1 28.3 8.1 42.9 10.4 0.1-4-0.3-8-1.3-11.9C124.4 129.1 115.8 122.7 107.4 115.9zM11.7 68.8c-0.1-0.1-0.2-0.3-0.2-0.4 0-0.1 0.2-0.2 0.3-0.2 0.1 0.1 0.3 0.1 0.4 0.2C12 68.5 11.8 68.6 11.7 68.8zM61.8 92.4c0.6-0.5 1.3-1 2-1.5 0 0 0.1 0.1 0.1 0.1 0 0 0 0 0 0 -0.1 0.8-0.1 1.7-0.4 2.4 -0.5 1.2-1.1 2.5-2.7 2.4 -0.6 0-1.5 0.1-1.5-0.8C59.1 93.3 60.9 93.2 61.8 92.4zM58 70.2c-1.2 3.3-3.3 2.7-5.7 2.8C53.9 71.1 55.4 70.5 58 70.2zM49.9 73.2c0 0.2 0.1 0.4 0.1 0.5 -0.1 0-0.3 0-0.4-0.1 -0.1 0-0.1-0.2-0.1-0.3C49.6 73.3 49.8 73.3 49.9 73.2zM35.8 53.9c1.6-1.1 3.3-2 5.6-1.7 -1.5 2.6-3.8 1.3-5.5 1.8 -3.1 3.1-7.5 2.2-11.1 3.7C27.6 53.9 32.2 55.2 35.8 53.9zM12.9 67.1c2.7-3.7 5.9-3.2 8.9-3.1 0 0 0 0 0 0l0 0C19.6 66.6 16.4 65.9 12.9 67.1zM17.2 100.8c1.6 0 2.1 1.2 2.7 2.2 0.1 0.1 0.3 0.3 0.4 0.4 -0.1-0.1-0.3-0.3-0.4-0.4 0 0-0.1 0.1-0.1 0.1l0 0C18.5 102.8 17.3 102.5 17.2 100.8zM23.8 106c-0.3-0.3-0.7-0.7-1-1 -0.8 0-1.6-0.2-2-1 0 0 0.1-0.1 0.1-0.1l0 0c0.8 0 1.6 0.2 2 1 0.3 0.3 0.7 0.7 1 1 0.8 0 1.6 0.2 2 1 0 0-0.1 0.1-0.1 0.1h0C25 107 24.2 106.8 23.8 106zM27.7 105.3c-6.1-2.5-11.4-10.1-11.3-16.3 0.1-3 6.9-9.1 10-8.9 0.8 0.1 2-0.1 1.9 1 0 1.6-0.2 3.7-1.7 4.5 -3.8 2-2.3 3.6-0.8 6.6 1.9 3.8 1.1 8.6 3.8 12.5C30.3 105.5 28.8 105.7 27.7 105.3zM31 107c0-0.1 0.1-0.3 0.1-0.4 0.1 0 0.3 0 0.3 0 0.1 0.1 0.1 0.3 0.1 0.4C31.4 107.5 31.2 107.5 31 107zM32.1 75c-2.1-3.8-4.3-2-6.4-0.4 -1.8 1.5-3.8 1.7-6 2.6 1.4-5.6 16-13.6 24.7-13 -6.5 1.5-6.5 7-9.5 10.2C33.8 75.6 33.1 76.8 32.1 75zM35.9 87.1c0 0-0.2-0.2-0.2-0.2 0 0 0 0 0 0 0.1-1.2 0.8-1.9 2-2 1-2.5 2.6-3.8 5.4-2.5 -0.8 2.8-3.1 2.6-5.3 2.6C37.8 86.3 37.2 87 35.9 87.1zM42.3 110c-1-1-1.8-2.1-0.5-3.4 1.8-1.8-0.5-3.8 0.3-5.7 0 0 0 0 0 0 0.6-0.3 1.1-0.6 1.7-0.9 1.4 8.6 8.6 12.5 14.4 17.6C52.3 116 46.6 114.5 42.3 110zM54.8 111.8c-1.3-0.9-1.4-2.5-0.2-3.4 3.3-2.8 2.9-6.7 4-10.5 1.7 6.7 2.3 13.9 7.3 19.5C61.1 116.8 58 114.2 54.8 111.8z" fill="#f6eab1"/></svg>
+
+                        <h1 class="text-center home-title">Deltebre</h1>
+                        <p class="text-center pt-2 mb-3 home-sub-title">Baix Ebre - Tarragona</p>
+                    </div>
+                </div>
+
+                <div class="row stats mt-5">
+                    <div class="col-md-4 col-sm-4 col-xs-4">
+                        <div class="text-center">
+                            <p class="services-main-title">Població</p>
+                            <div class="stat-value">12.023</div>
+                            <p class="services-main-subtitle">50,47% homes - 49,53% dones</p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 col-sm-4 col-xs-4">
+                        <div class="text-center">
+                            <p class="services-main-title">Atur</p>
+                            <div class="stat-value">6,65%</div>
+                            <p class="services-main-subtitle">mitjana 2017</p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 col-sm-4 col-xs-4">
+                        <div class="text-center">
+                            <p class="services-main-title">Nacionalitat Estrangera</p>
+                            <div class="stat-value">12,5%</div>
+                            <p class="services-main-subtitle">2017</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row stats">
+                    <div class="col-md-4 col-sm-4 col-xs-4">
+                        <div class="text-center">
+                            <p class="services-main-title">Turisme anual</p>
+                            <div class="stat-value">34.267</div>
+                            <p class="services-main-subtitle">Ecomuseu i Riumar</p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 col-sm-4 col-xs-4">
+                        <div class="text-center">
+                            <p class="services-main-title">Restaurants</p>
+                            <div class="stat-value">49</div>
+                            <p class="services-main-subtitle">2017</p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 col-sm-4 col-xs-4">
+                        <div class="text-center">
+                            <p class="services-main-title">Allotjaments</p>
+                            <div class="stat-value">616</div>
+                            <p class="services-main-subtitle">5.242 places</p>
+                        </div>
+                    </div>
+                </div>
+
+                <ul class="icons-list">
+                    <li class="smooth-nostyle">
+                        <a href="#about">
+                            <i class="pe-7s-leaf"></i>
+                            <p>
+                                Deltebre
+                            </p>
+                        </a>
+                    </li>
+                    <li class="smooth-nostyle">
+                        <a href="#graph1">
+                            <i class="pe-7s-map-2"></i>
+                            <p>
+                                Territori
+                            </p>
+                        </a>
+                    </li>
+                    <li class="smooth-nostyle">
+                        <a href="#graph2">
+                            <i class="pe-7s-users"></i>
+                            <p>
+                                Població
+                            </p>
+                        </a>
+                    </li>
+                    <li class="smooth-nostyle">
+                        <a href="#graph3">
+                            <i class="pe-7s-bicycle"></i>
+                            <p>
+                                Serveis i poble
+                            </p>
+                        </a>
+                    </li>
+                    <li class="smooth-nostyle">
+                        <a href="#graph4">
+                            <i class="pe-7s-graph1"></i>
+                            <p>
+                                Economia
+                            </p>
+                        </a>
+                    </li>
+                    <li class="smooth-nostyle">
+                        <a href="#graph5">
+                            <i class="pe-7s-culture"></i>
+                            <p>
+                                Administració
+                            </p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <a id="scrollIcon" class="scroll-link" href="#about">
+        <svg class="mouse" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 76 130" preserveAspectRatio="xMidYMid meet">
+            <g fill="none" fill-rule="evenodd">
+                <rect width="70" height="118" x="1.5" y="1.5" stroke="#FFF" stroke-width="3" rx="36"/>
+                <circle class="scroll" cx="36.5" cy="31.5" r="4.5" fill="#FFF"/>
+            </g>
+        </svg>
+    </a>
+</section>
+
+<section class="section bg-black" id="about">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 section-header">
+                <p class="title">Sobre Deltebre</p>
+            </div>
+        </div>
+
+        <div class="text-column">
+            <div class="about-text">
+                <p>
+                        Deltebre és un municipi situat al bell mig del Delta de l'Ebre, a la comarca del Baix Ebre. Actualment té una població de 12.023 habitants (dades de principis de 2018) amb gairebé paritat entre el percentatge de dones (49,53%) i el d'homes (50,47%).
+                </p>
+                <p>
+                        L'economia del municipi es basa en tres principals sectors. Per una banda, la construcció, tot i que ha patit una baixada considerable després de la crisi.
+                        Per altra banda, l'agricultura i la pesca, especialment el conreu d'arròs, conegut arreu com un dels principals productes del Delta.
+                        Finalment, el més important: el sector turístic i de serveis. L'activitat cultural, l'entorn natural i la situació prvilegiada del municipi
+                        són de gran atractiu pel turisme tant local com internacional.
+                </p>
+            </div>
+            <div class="about-other">
+                <img src="../static/assets/images/relleu.png" />
+                <!-- <div class="gmap_canvas"><iframe width="200" height="200" id="gmap_canvas" src="https://maps.google.com/maps?q=deltebre&t=&z=11&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe></div><style>.mapouter{text-align:right;height:200px;width:200px;}.gmap_canvas {overflow:hidden;background:none!important;height:200px;width:200px;}</style>  -->
+                </p>
+            </div>
+        </div>
+
+        <ul class="icons-list big-list">
+            <li class="smooth-nostyle">
+                <a href="#graph1">
+                    <p>
+                        <i class="pe-7s-map-2"></i> Territori
+                    </p>
+                </a>
+                <a class="icons-list-anchor" href="#colors">Colors i gastronomia</a>
+                <a class="icons-list-anchor" href="#platges">Platges</a>
+                <a class="icons-list-anchor" href="#ocells1">Ocells</a>
+            </li>
+            <li class="smooth-nostyle">
+                <a href="#graph2">
+                    <p>
+                        <i class="pe-7s-users"></i> Població
+                    </p>
+                </a>
+                <a class="icons-list-anchor" href="#edat">Edat i sexe</a>
+                <a class="icons-list-anchor" href="#nacionalitats">Nacionalitats estrangeres</a>
+            </li>
+            <li class="smooth-nostyle">
+                <a href="#graph3">
+                    <p>
+                        <i class="pe-7s-bicycle"></i> Serveis i poble
+                    </p>
+                </a>
+                <a class="icons-list-anchor" href="#turisme">Turisme</a>
+                <a class="icons-list-anchor" href="#allotjaments">Allotjaments</a>
+                <a class="icons-list-anchor" href="#restaurants">Restaurants</a>
+                <a class="icons-list-anchor" href="#zonificacio">Zonificació escolar</a>
+            </li>
+            <li class="smooth-nostyle">
+                <a href="#graph4">
+                    <p>
+                        <i class="pe-7s-graph1"></i> Economia
+                    </p>
+                </a>
+                <a class="icons-list-anchor" href="#despeses">Despeses</a>
+                <a class="icons-list-anchor" href="#ingressos">Ingressos</a>
+                <a class="icons-list-anchor" href="#atur"> Atur</a>
+            </li>
+            <li class="smooth-nostyle">
+                <a href="#graph5">
+                    <p>
+                        <i class="pe-7s-culture"></i> Administració
+                    </p>
+                </a>
+                <a class="icons-list-anchor" href="#oberts1">Contractes oberts</a>
+                <a class="icons-list-anchor" href="#menors">Contractes menors</a>
+                <a class="icons-list-anchor" href="#eleccions">Eleccions</a>
+            </li>
+        </ul>
+    </div>
+</section>
+
+
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="fulldata-tab" data-toggle="tab" href="#fulldata" role="tab" aria-controls="fulldata" aria-selected="true">Veure dades</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="saveImage-tab" data-toggle="tab" href="#saveImage" role="tab" aria-controls="saveImage" aria-selected="false">Guardar imatge</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="shareGraph-tab" data-toggle="tab" href="#shareGraph" role="tab" aria-controls="shareGraph" aria-selected="false">Compartir</a>
+                    </li>
+                </ul>
+
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <i class="pe-7s-close"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="tab-content" id="myTabContent">
+                    <div class="tab-pane fade show active" id="fulldata" role="tabpanel" aria-labelledby="fulldata-tab" style="overflow: scroll;">
+
+                        <div class="row mb-4">
+                            <div class="col-md-7">
+                                <h5 id="graph-title"></h5>
+                            </div>
+                            <div class="col-md-5">
+                                <a class="btn btn-outline btn-download" id="csv-download">
+                                    <i class="pe-7s-cloud-download"></i> Descarregar com CSV
+                                </a>
+                            </div>
+                        </div>
+
+                        <table class="table table-hover table-sm" id="table">
+                        </table>
+                    </div>
+                    <div class="tab-pane fade" id="saveImage" role="tabpanel" aria-labelledby="saveImage-tab">
+                        <ul class="imageDownload">
+                            <!--<li><i class="icon-file-code-o"></i> SVG</li>-->
+                            <li><i class="icon-file-image-o" id="export-image"></i> PNG</li>
+                            <!--<li><i class="icon-file-pdf-o"></i> PDF</li>-->
+                        </ul>
+                    </div>
+                    <div class="tab-pane fade" id="shareGraph" role="tabpanel" aria-labelledby="shareGraph-tab">
+                        <div class="row mt-3">
+                            <!--<div class="col-md-2">-->
+                                <!--<a class="share-btn">-->
+                                    <!--<i class="icon icon-facebook-square"></i>-->
+                                <!--</a>-->
+
+                                <!--<a class="share-btn">-->
+                                    <!--<i class="icon-twitter-square"></i>-->
+                                <!--</a>-->
+                            <!--</div>-->
+                            <div class="col-md-12">
+                                <div class="input-group input-group-sm mt-2">
+                                    <input type="text" id="share-link" class="form-control" placeholder="Copia l'enllaç directe a aquest gràfic" />
+                                    <div class="input-group-append">
+                                        <button id="copy-button" class="btn btn-outline-secondary" type="button">Copia</button>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="input-group input-group-sm mt-2">
+                                    Copia i enganxa el següent codi per col·locar la versió interactiva d'aquesta visualització en la teva web.
+                                </div>
+                                <div class="input-group input-group-sm mt-2">
+                                    <input type="text" id="embed-link" class="form-control" placeholder="Copia l'enllaç directe a aquest gràfic" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="section bg-gray" id="graph1">
+    <div class="container graph-section">
+        <div class="row">
+            <div class="col-md-12 section-header">
+                <p class="title"><i class="pe-7s-map-2"></i> Territori</p>
+            </div>
+
+            <div class="col-md-12 graph-text">
+                <p>
+                        Deltebre està envoltat d'un territori ric i molt divers.
+                        Hi podem trobar tant grans extensions de conreus d'arròs com paratges naturals o quilòmetres de platges.
+                        És per això que el municipi atreu una àmplia varietat de visitants i acull activitats de tot tipus.
+                        <br />
+                        <br />
+                        <br />
+                </p>
+            </div>
+        </div>
+
+        <div class="row graph-unit-container" id="colors">
+            <div class="col-md-12 graph-info">
+                <h3>Colors i Gastronomia</h3>
+                <hr />
+            </div>
+            <div class="col-md-12 graph-space">
+                {% include "includes/arros.html" %}
+            </div>
+            <div class="col-md-12 graph-info">
+                <div class="text-column">
+                    <div class="column-pad">
+                            <h2 class="graph-section-title1">El Cicle de l'Arròs</h2>
+                            <p>
+                                El Delta de l'Ebre canvia de color constantment. Al llarg de l'any el podem trobar de 4 colors diferents: <br />
+                                    <br />
+                                    <b>BLAU</b><br />
+                                    Un cop s'ha llençat l'adob (guano) per, posteriorment, poder sembrar l'arròs, els camps s'inunden d'aigua (març i abril) i el Delta s'inunda de color blau.
+                                    <br />
+                                    <br />
+                                    <b>VERD</b><br />
+                                    Durant els mesos de maig i juny l'arròs creix i el Delta es torna de color verd.
+                                    <br />
+                                    <br />
+                                    <b>GROC</b><br />
+                                    L'arròs creix i madura al llarg dels mesos de juliol, agost i setembre, cobrint-ho tot de color groc.
+                                    <br />
+                                    <br />
+                                    <b>MARRÓ</b><br />
+                                    Durant l'època de la sega (setembre i octubre) tornem a canviar de color, són els mesos on trobarem el Delta marró.
+                                    <br />
+                                    <br />
+                                    <b>BLAU</b><br />
+                                    El blau torna per acomiadar l'any (novembre i desembre), però aquesta vegada l'objectiu d'inundar els camps és el de conservar la flora i la fauna del territori.
+                            </p>
+                    </div>
+                    <div class="column-pad">
+                        <h2 class="graph-section-title1">Jornades</h2>
+                        <p>
+                            El cicle de l'arròs no s'atura, i tampoc ho fa Deltebre. Trobem jornades relacionades amb el món gastronòmic i de tot tipus al llarg de l'any. <br /><br />
+                            Durant 2018:<br />
+                            <br />
+                            <b>Del 8 al 25 de març</b> <br />
+                            Jornades de la tellerina<br />
+                            <br />
+                            <b>Del 18 al 20 de maig</b><br />
+                            Mescla: Mostra de Gastronomia i Turisme<br />
+                            <br />
+                            <b>Del 6 al 22 de juliol</b><br />
+                            Jornades del musclo<br />
+                            <br />
+                            <b> Del 31 d'agost al 16 de setembre</b><br />
+                            Volta i tapa’t<br />
+                            <br />
+                            <b>Del 9 al 25 de novembre</b><br />
+                            Jornades de l’ànec<br />
+                            <br />
+                        </p>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="row graph-unit-container" id="platges">
+            <div class="col-md-12 graph-info t-left">
+                    <h3>Platges</h3>
+                    <hr />
+            </div>
+            <div class="col-md-4 graph-info">
+                <p>
+                        Deltebre té un total de 4 platges amb extensions i serveis diferents:<br />
+                        <br />
+                        La <b>platja Riumar</b> és semiurbana, amb bandera blava que disposa de diferents serveis: socorrisme, lloguer d’hamaques i para-sols, patins aquàtics, guinguetes... i té una zona habilitada per a la pràctica d’esports aquàtics. <br />
+                        <br />
+                        La <b>platja Bassa de l’Arena</b> té zona habilitada per a mascotes, zona per a pesca i platja nudista. <br />
+                        <br />
+                        La <b>platja de la Marquesa</b> té zones per a banyistes, per a gossos i per a pesca. <br />
+                        <br />
+                        La <b>platja Punta del Fangar</b> és una zona de gran riquesa natural amb l’accés a peu.<br />
+                </p>
+                <span class="graph-extra">Aquest mapa mostra les diferents zones de platges, les extensions sobre el territori que cobreixen i els seus serveis</span>
+            </div>
+
+            <div class="col-md-8 graph-space">
+                <div class="row">
+                    <div class="col-md-2">
+
+                    </div>
+                    <div class="col-md-10">
+                        <ul class="graphOptions">
+                            <li data-map="true" data-title="Platges" data-option="shareGraph" data-toggle="modal" data-target="#exampleModalCenter" class="graph-options" data-div="iframe_platjes">Compartir <i class="pe-7s-share"></i></li>
+                        </ul>
+                        <br>
+                    </div>
+                </div>
+                <div>
+                    <iframe id="iframe_platjes" width="100%" height="520" frameborder="0" src="https://8wires.carto.com/builder/881c7a81-a167-4f2b-a4b2-ffa61a695559/embed?state=%7B%22map%22%3A%7B%22ne%22%3A%5B40.65902460852209%2C0.5107955890707673%5D%2C%22sw%22%3A%5B40.84524236616858%2C1.0134201007895174%5D%2C%22center%22%3A%5B40.75219867966514%2C0.7621078449301423%5D%2C%22zoom%22%3A12%7D%7D" allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+
+        <div class="row graph-unit-container" id = "ocells1">
+            <div class="col-md-12 graph-info">
+                <h3>Ocells</h3>
+                <hr />
+                <p>
+                        Durant tot l'any Deltebre rep visites d'ornitòlegs i apassionats del món dels ocells que venen al Delta de l'Ebre. Any rere any, ornitòlegs de tot el món passen per les terres del Delta i fan parada al municipi de Deltebre.<br />
+                        <br />
+                        El següent gràfic mostra les famílies i espècies que podem trobar més habitualment al Delta amb el nom comú en català, castellà i anglès, el nom 
+                        científic i l'estatus, segons la classificació esmentada anteriorment.
+
+                </p>
+            </div>
+
+            <div class="col-md-12 graph-space">
+                {% include "includes/ocells.html" %}
+            </div>
+            <div class="col-md-12 graph-info">
+                <p>
+                    Estatus:<br />
+                    <li><b>BR:</b> reproductor resident </li>
+                    <li><b>BS:</b> reproductor estival </li>
+                    <li><b>P:</b> migrant, en alguns casos amb moviments dispersius o d’exploració </li>
+                    <li><b>W:</b> hivernant </li>
+                    <li><b>NbS:</b> estival no reproductor </li>
+                    <li><b>NbY:</b> present en qualsevol època de l’any, sense reproduir-s’hi </li>
+                </p>
+            </div>
+            <div class="col-md-12 graph-info">
+                <span class="graph-extra">El gràfic mostra les famílies i espècies d'ocells més abundats (Catagoritzades com a <i>Ab</i>) del Delta de l'Ebre segons
+                    la <b>Llista Patró dels ocells del Delta de l'Ebre</b>, <i>Edició 2.0, Juny 2015 - Parc Natural del Delta de l'Ebre</i>.
+                </span>
+            </div>  
+        </div>
+
+    </div>
+</section>
+
+<section class="section bg-white" id="graph2">
+    <div class="container graph-section">
+        <div class="row">
+            <div class="col-md-12 section-header">
+                <p class="title"><i class="pe-7s-users"></i> Població</p>
+            </div>
+
+            <div class="col-md-12 graph-text">
+                <p>
+                        Deltebre és un municipi jove dins la comarca del Baix Ebre.
+                        Però, com són les persones que hi viuen? <br />
+                        A grans trets es pot dir que Deltebre té una població molt equiparada entre sexes
+                        i acull una àmplia varietat de nacionalitats diferents entre els seus habitants.
+                        <br />
+                        <br />
+                        <br />
+                </p>
+
+            </div>
+        </div>
+
+        <div class="row graph-unit-container" id="edat">
+            <div class="col-md-12 graph-info t-left">
+                <h3>Edat i Sexe</h3>
+                <hr />
+            </div>
+            <div class="col-md-4 graph-info">
+                <p class="big-value">
+                        12.023 habitants
+                </p>
+                <p>
+                    El percentatge d’homes a Deltebre (50,47%) és lleugerament superior al de dones (49,53%) en els últims anys.
+                    D’altra banda, observant l'evolució s’aprecia <b>l’envelliment progressiu</b> de la població de Deltebre, que segueix la tendència general europea dels últims anys.
+                </p>
+                <span class="graph-extra">El gràfic mostra la distribució de la població per edat i sexe des del 2013 al 2017</span>
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+            </div>
+
+            <div class="col-md-8 graph-space">
+                <div class="row">
+                    <div class="col-md-2">
+
+                    </div>
+                    <div class="col-md-10">
+                        <ul class="graphOptions">
+                            <li data-title="Edad i Sexe" data-option="fulldata" data-toggle="modal" data-target="#exampleModalCenter" class="graph-options" data-json='{{ gender_age_data |safe }}' data-div="edad_sexe_graph" data-embed="genere" data-share="edad_sexe_graph">Veure dades <i class="pe-7s-server"></i></li>
+                            <li data-title="Edad i Sexe" data-option="saveImage" data-toggle="modal" data-target="#exampleModalCenter" class="graph-options" data-json='{{ gender_age_data |safe }}' data-div="edad_sexe_graph" data-embed="genere" data-share="edad_sexe_graph">Guardar imatge <i class="pe-7s-photo"></i></li>
+                            <li data-title="Edad i Sexe" data-option="shareGraph" data-toggle="modal" data-target="#exampleModalCenter" class="graph-options" data-json='{{ gender_age_data |safe }}' data-div="edad_sexe_graph" data-embed="genere" data-share="edad_sexe_graph">Compartir <i class="pe-7s-share"></i></li>
+                        </ul>
+                        <br>
+                    </div>
+                </div>
+                {% include "includes/genere.html" %}
+            </div>
+        </div>
+
+        <div class="row graph-unit-container" id="nacionalitats">
+            <div class="col-md-12 graph-info t-left">
+                    <h3>Nacionalitats estrangeres</h3>
+                    <hr />
+            </div>
+            <div class="col-md-4 graph-info">
+                <p class="big-value">
+                        12.5% <span>de la població</span>
+                </p>
+                <p>
+                    Actualment, a Deltebre hi ha persones de <b>57 nacionalitats</b> diferents, proporcionant una enorme diversitat cultural. <br />
+                    El percentatge de ciutadans amb una nacionalitat diferent de l’espanyola és del 12.5%.
+                    D’entre aquests, més d’un terç són romanesos. Els següents països amb més representació són Marroc, Pakistan i Alemanya, respectivament. <br />
+                    Per altra banda, entre els països menys representats trobem Xile, Filipines, Hongria, Mèxic, Síria o Luxemburg, entre d'altres.
+                </p>
+                <span class="graph-extra">El gràfic mostra les 15 nacionalitats amb major nombre d'habitants l'any 2017</span>
+            </div>
+
+            <div class="col-md-8 graph-space">
+                <div class="row">
+                    <div class="col-md-2">
+
+                    </div>
+                    <div class="col-md-10">
+                        <ul class="graphOptions">
+                            <li data-title="Nacionalitats estrangeres" data-option="fulldata" data-toggle="modal" data-embed="nacionalitat" data-share="nacionalitat_graph" data-div="nacionalitat_graph" data-target="#exampleModalCenter" class="graph-options" data-json='{{ nationality_data |safe }}'>Veure dades <i class="pe-7s-server"></i></li>
+                            <li data-title="Nacionalitats estrangeres" data-option="saveImage" data-toggle="modal" data-embed="nacionalitat" data-share="nacionalitat_graph" data-div="nacionalitat_graph" data-target="#exampleModalCenter" class="graph-options" data-json='{{ nationality_data |safe }}'>Guardar imatge <i class="pe-7s-photo"></i></li>
+                            <li data-title="Nacionalitats estrangeres" data-option="shareGraph" data-toggle="modal" data-embed="nacionalitat" data-share="nacionalitat_graph" data-div="nacionalitat_graph" data-target="#exampleModalCenter" class="graph-options" data-json='{{ nationality_data |safe }}'>Compartir <i class="pe-7s-share"></i></li>
+                        </ul>
+                        <br>
+                    </div>
+                </div>
+                {% include "includes/nacionalitat.html" %}
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<section class="section bg-gray" id="graph3">
+    <div class="container graph-section">
+        <div class="row">
+            <div class="col-md-12 section-header">
+                <p class="title"><i class="pe-7s-bicycle"></i> Serveis i poble</p>
+            </div>
+
+            <div class="col-md-12 graph-text">
+                <p>
+                    Deltebre té un ventall molt ampli de serveis. Alguns d'ells estan enfocats a la propia ciutadania del municipi, d'altres al turisme i, en molts 
+                    casos, a tots dos col·lectius. La varietat d'allotjaments i restaurants fan de Deltebre un lloc flexible i ideal per gaudir d'experiències diferents.
+                </p>
+            </div>
+        </div>
+        
+        <div class="row graph-unit-container" id="associacions">
+            <div class="col-md-12 graph-info t-left">
+                <h3>Associacions</h3>
+                <hr />
+            </div>
+
+            <div class="col-md-4 graph-info">
+                    <p class="big-value">
+                            99 associacions
+                    </p>
+                    <p>
+                        A Deltebre hi ha una centena d’associacions diferents de tot tipus. Només entre les esportives i les 
+                        culturals ja representen més de la meitat de les associacions totals. També trobem diverses associacions 
+                        socials, cíviques i professionals. Per últim, també hi ha col·lectius de joves, dones i gent gran.
+                    </p>
+                    <br><br><br><br><br>
+            </div>
+
+            <div class="col-md-8 graph-space">
+                    <div class="row">
+                        <div class="col-md-2">
+
+                        </div>
+                        <div class="col-md-10">
+                            <ul class="graphOptions">
+                                <li data-title="Capacitat dels allotjaments" data-option="fulldata" data-toggle="modal" data-embed="allotjaments" data-div="accomodations_graph" data-target="#exampleModalCenter" class="graph-options" data-json='{{ accommodations_data |safe }}'>Veure dades <i class="pe-7s-server"></i></li>
+                                <li data-title="Capacitat dels allotjaments" data-option="saveImage" data-toggle="modal" data-embed="allotjaments" data-div="accomodations_graph" data-target="#exampleModalCenter" class="graph-options" data-json='{{ accommodations_data |safe }}'>Guardar imatge <i class="pe-7s-photo"></i></li>
+                                <li data-title="Capacitat dels allotjaments" data-option="shareGraph" data-toggle="modal" data-embed="allotjaments" data-div="accomodations_graph" data-target="#exampleModalCenter" class="graph-options" data-json='{{ accommodations_data |safe }}'>Compartir <i class="pe-7s-share"></i></li>
+                            </ul>
+                            <br>
+                        </div>
+                    </div>
+                    {% include "includes/Associacions_tipus.html" %}
+                </div>
+
+        </div>
+
+        <div class="col-md-12_taula">
+            {% include "includes/taula_associacions.html" %}
+        </div><br><br>
+
+        <h2 class="graph-section-title" id="turisme">Turisme</h2>
+        <div class="row graph-unit-container" id="visites">
+            <div class="col-md-12 graph-info t-left">
+                    <h3>Visites turístiques</h3>
+                    <hr />
+            </div>
+            <div class="col-md-4 graph-info">
+                <p class="big-value">
+                        Ecomuseu
+                </p>
+                <p>
+                    Les visites a l’Ecomuseu han sigut molt variants al llarg dels últims anys. El 2015 va ser de 16.886 persones (un 53% del total de visitants). 
+                    Aquest percentatge és degut a que al 2015 hi havia dues casetes (La Cava i Jesús i Maria). L’any 2016 van tancar les dues casetes i es va obrir la 
+                    de Riumar. És per això que durant 2016 les visites a l’Ecomuseu van augmentar fins a 31.472 (un 93%) i la caseta de Riumar només va rebre un 7% de 
+                    les visites totals. El 2017 veiem que les visites a l’Ecomuseu segueixen augmentant fins a 32.745 persones, mostrant així que el turisme a Deltebre 
+                    té una tendència a l’alça en els últims anys.
+                </p>
+                <span class="graph-extra">Comparació de l'evolució mensual de visites a l'Ecomuseu durant els anys 2016 i 2017</span>
+            </div>
+
+            <div class="col-md-8 graph-space">
+                <div class="row">
+                    <div class="col-md-2">
+
+                    </div>
+                    <div class="col-md-10">
+                        <ul class="graphOptions">
+                            <li data-title="Visites turístiques" data-option="fulldata" data-toggle="modal" data-embed="visitants" data-div="visitants_graph" data-target="#exampleModalCenter" class="graph-options" data-json='{{ ecomuseumvisits_data |safe }}'>Veure dades <i class="pe-7s-server"></i></li>
+                            <li data-title="Visites turístiques" data-option="saveImage" data-toggle="modal" data-embed="visitants" data-div="visitants_graph" data-target="#exampleModalCenter" class="graph-options" data-json='{{ ecomuseumvisits_data |safe }}'>Guardar imatge <i class="pe-7s-photo"></i></li>
+                            <li data-title="Visites turístiques" data-option="shareGraph" data-toggle="modal" data-embed="visitants" data-div="visitants_graph" data-target="#exampleModalCenter" class="graph-options" data-json='{{ ecomuseumvisits_data |safe }}'>Compartir <i class="pe-7s-share"></i></li>
+                        </ul>
+                        <br>
+                    </div>
+                </div>
+                {% include "includes/visitants.html" %}
+            </div>
+        </div>
+        
+        <h2 class="graph-section-title" id="restauracio">Restauració i Hosteleria</h2>
+
+        <div class="row graph-unit-container" id="serveis">
+            <div class="col-md-12 graph-info t-left">
+                <h3>Serveis Turístics</h3>
+                <hr />
+            </div>
+
+            <div class="col-md-8 graph-space">
+                    <div class="row">
+                        <div class="col-md-2">
+
+                        </div>
+                        <div class="col-md-10">
+                            <ul class="graphOptions">
+                                <li data-title="Serveis Turístics" data-option="fulldata" data-toggle="modal" data-embed="serveis" data-div="serveis_graph" data-target="#exampleModalCenter" class="graph-options" data-json='{{ turistic_data |safe }}'>Veure dades <i class="pe-7s-server"></i></li>
+                                <li data-title="Serveis Turístics" data-option="saveImage" data-toggle="modal" data-embed="serveis" data-div="serveis_graph" data-target="#exampleModalCenter" class="graph-options" data-json='{{ turistic_data |safe }}'>Guardar imatge <i class="pe-7s-photo"></i></li>
+                                <li data-title="Serveis Turístics" data-option="shareGraph" data-toggle="modal" data-embed="serveis" data-div="serveis_graph" data-target="#exampleModalCenter" class="graph-options" data-json='{{ turistic_data |safe }}'>Compartir <i class="pe-7s-share"></i></li>
+                            </ul>
+                            <br>
+                        </div>
+                    </div>
+                    {% include "includes/serveis.html" %}
+            </div>
+
+            <div class="col-md-4 graph-info">
+                <p class="big-value">
+                        88,8% allotjaments
+                </p>
+                <p>
+                    Dins dels serveis turístics que ofereix Deltebre diferenciem 3 tipus:
+                    <b>Restaurants</b> (7,06%), <b>Allotjaments</b> (88,76%) i <b>Activitats complementàries</b> (4,18%). <br />
+                    Aquestes dades confirmen que els principals serveis turístics oferts per Deltebre es centren en allotjaments tot i que el nombre de restaurants també és elevat.
+                    Les activitats complementàries, tot i ser un percentatge molt més petit, són fonamentals per l'experiència que els turistes s'emporten després de passar pel municipi.
+                </p>
+                <br>
+                <br>
+                <br>
+            </div>
+
+        </div>
+
+        <div class="row graph-unit-container" id="capacitat">
+            <div class="col-md-12 graph-info t-left">
+                <h3>Capacitat dels allotjaments</h3>
+                <hr />
+            </div>
+
+            <div class="col-md-4 graph-info">
+                    <p class="big-value">
+                            5.242 persones
+                    </p>
+                    <p>
+                        Tot i que hi ha una gran varietat de tipus d’allotjaments disponibles, els <b>Habitatges d’Ús Turístic</b> del poble i, especialment, de Riumar,
+                        són els més nombrosos i els que més capacitat ofereixen (junt amb el càmping). A una menor escala, també hi ha moltes cases als arrossars i
+                        altres zones rurals. Hotels i pensions completen l’oferta d’allotjaments a Deltebre.
+                    </p>
+                    <br>
+                    <span class="graph-extra">Número d’allotjaments i capacitat total per tipus d’allotjament</span>
+            </div>
+
+            <div class="col-md-8 graph-space">
+                    <div class="row">
+                        <div class="col-md-2">
+
+                        </div>
+                        <div class="col-md-10">
+                            <ul class="graphOptions">
+                                <li data-title="Capacitat dels allotjaments" data-option="fulldata" data-toggle="modal" data-embed="allotjaments" data-div="accomodations_graph" data-target="#exampleModalCenter" class="graph-options" data-json='{{ accommodations_data |safe }}'>Veure dades <i class="pe-7s-server"></i></li>
+                                <li data-title="Capacitat dels allotjaments" data-option="saveImage" data-toggle="modal" data-embed="allotjaments" data-div="accomodations_graph" data-target="#exampleModalCenter" class="graph-options" data-json='{{ accommodations_data |safe }}'>Guardar imatge <i class="pe-7s-photo"></i></li>
+                                <li data-title="Capacitat dels allotjaments" data-option="shareGraph" data-toggle="modal" data-embed="allotjaments" data-div="accomodations_graph" data-target="#exampleModalCenter" class="graph-options" data-json='{{ accommodations_data |safe }}'>Compartir <i class="pe-7s-share"></i></li>
+                            </ul>
+                            <br>
+                        </div>
+                    </div>
+                    {% include "includes/allotjaments.html" %}
+                </div>
+
+        </div>
+
+        <div class="row graph-unit-container" id="allotjaments">
+            <div class="col-md-12 graph-info t-left">
+                <h3>Allotjaments</h3>
+                <hr />
+            </div>
+            <div class="col-md-4 graph-info">
+                <p>
+                    Tot i que hi ha molts allotjaments orientats al turisme rural a Deltebre, també hi ha hotels i hostals, cases de poble, apartaments,
+                    albergs i càmpings, completant una <b>oferta d’allotjaments variada</b> i adaptable als diferents tipus de turisme que hi ha a la zona.
+                </p>
+                <img src='../static/assets/images/llegenda_allotjaments.png' style="width: 230px;">
+                <span class="graph-extra">Situació dels allotjaments a Deltebre, classificats pel tipus d’allotjament i per si admeten o no mascotes.</span>
+            </div>
+
+            <div class="col-md-8 graph-space">
+                <div class="row">
+                    <div class="col-md-2">
+
+                    </div>
+                    <div class="col-md-10">
+                        <ul class="graphOptions">
+                            <li data-file='{% static "assets/maps_data/Allotjaments.csv" %}' data-json='{{ accomodation_csv_data |safe }}' data-map="true" data-title="Situació dels allotjaments a Deltebre" data-option="fulldata" data-toggle="modal" data-target="#exampleModalCenter" class="graph-options" data-div="iframe_allotjaments">Veure dades <i class="pe-7s-server"></i></li>
+                            <li data-file='{% static "assets/maps_data/Allotjaments.csv" %}' data-json='{{ accomodation_csv_data |safe }}' data-map="true" data-title="Situació dels allotjaments a Deltebre" data-option="shareGraph" data-toggle="modal" data-target="#exampleModalCenter" class="graph-options" data-div="iframe_allotjaments">Compartir <i class="pe-7s-share"></i></li>
+                        </ul>
+                        <br>
+                    </div>
+                </div>
+                <iframe id="iframe_allotjaments" width="100%" height="520" frameborder="0" src="https://8wires.carto.com/builder/cff7b299-1733-4ae1-92fb-001cfed92767/embed?state=%7B%22map%22%3A%7B%22ne%22%3A%5B40.638133673430055%2C0.5122375069186093%5D%2C%22sw%22%3A%5B40.824409845960865%2C1.0148620186373594%5D%2C%22center%22%3A%5B40.73133694490664%2C0.7635497627779843%5D%2C%22zoom%22%3A12%7D%7D" allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
+            </div>
+        </div>
+
+        <div class="row graph-unit-container" id="restaurants">
+                <div class="col-md-12 graph-info t-left">
+                    <h3>Restaurants</h3>
+                     <hr />
+                </div>
+            <div class="col-md-4 graph-info">
+                <p>
+                    Un dels serveis turístics més importants de Deltebre són els restaurants. N'hi ha de diferents i molts d'ells tenen opcions i menús per celíacs.
+                    Dins de les principals categories trobem restaurants especialitzats en <b>Arrossos i cuina tradicional</b>, d'altres en <b>Cuines del món</b> i també de <b>Tapes i entrepans</b>.
+                    Per altra banda, hi ha una zona a Riumar amb diferents <i>xiringuitos</i> de platja que obren durant l'estiu.
+                </p>
+                <img src='../static/assets/images/llegenda_restaurants.png' style="width: 210px;">
+                <span class="graph-extra">Situació dels restaurants a Deltebre, classificats pel tipus de menjar i per si tenen o no menús per a celíacs.</span>
+            </div>
+
+            <div class="col-md-8 graph-space">
+                <div class="row">
+                    <div class="col-md-2">
+
+                    </div>
+                    <div class="col-md-10">
+                        <ul class="graphOptions">
+                            <li data-file='{% static "assets/maps_data/Restaurants.csv" %}' data-json='{{ restaurant_csv_data |safe }}' data-map="true" data-title="Situació dels restaurants a Deltebre" data-option="fulldata" data-toggle="modal" data-target="#exampleModalCenter" class="graph-options" data-div="iframe_restaurants">Veure dades <i class="pe-7s-server"></i></li>
+                            <li data-file='{% static "assets/maps_data/Restaurants.csv" %}' data-json='{{ restaurant_csv_data |safe }}' data-map="true" data-title="Situació dels restaurants a Deltebre" data-option="shareGraph" data-toggle="modal" data-target="#exampleModalCenter" class="graph-options" data-div="iframe_restaurants">Compartir <i class="pe-7s-share"></i></li>
+                        </ul>
+                        <br>
+                    </div>
+                </div>
+                <iframe id="iframe_restaurants" width="100%" height="520" frameborder="0" src="https://8wires.carto.com/builder/619ab4a1-fa16-448f-91a4-23cfa90539d0/embed?state=%7B%22map%22%3A%7B%22ne%22%3A%5B40.63756050583133%2C0.5121002113446594%5D%2C%22sw%22%3A%5B40.82383828069628%2C1.0147247230634096%5D%2C%22center%22%3A%5B40.73076457827948%2C0.7634124672040344%5D%2C%22zoom%22%3A12%7D%7D" allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
+            </div>
+        </div>
+
+        <h2 class="graph-section-title">Serveis del poble</h2>
+
+        <div class="row graph-unit-container" id="zonificacio">
+                <div class="col-md-12 graph-info t-left">
+                        <h3>Zonificació escolar</h3>
+                        <hr />
+                </div>
+                <div class="col-md-4 graph-info">
+                <p class="big-value">
+                        Curs 2018-2019
+                </p>
+                <p>
+                    La Zona 1, corresponent a l’Escola Riumar,
+                    anirà des de la zona Cooperativa de Vivendes fins als carrers St. Miquel – Estació – Trinquet.
+                    L’escola té assignada una línia i durant el curs escolar 2018-19 serà de 18 alumnes. La Zona 2, corresponent a l’Escola Sant Miquel,
+                    anirà des dels carrers St. Miquel – Estació – Trinquet  fins al carrer Girona. L’escola té assignades dues línies i durant el curs
+                    escolar 2018-19 seran de 20 i 21 alumnes. La Zona 3, corresponent a l’Escola l’Assumpció, anirà des del carrer Girona fins al carrer Amposta.
+                    L’escola té assignada una línia i durant el curs escolar 2018-19 serà de 25 alumnes.
+                </p>
+                <img src='../static/assets/images/llegenda_escoles.png' style="width: 150px;">
+                <span class="graph-extra">Zonficiació Escolar de Deltebre per al curs 2018-2019</span>
+            </div>
+
+            <div class="col-md-8 graph-space">
+                <div class="row">
+                    <div class="col-md-2">
+
+                    </div>
+                    <div class="col-md-10">
+                        <ul class="graphOptions">
+                            <li data-map="true" data-title="Zonificació Escolar" data-option="shareGraph" data-toggle="modal" data-target="#exampleModalCenter" class="graph-options" data-div="iframe_escolar">Compartir <i class="pe-7s-share"></i></li>
+                        </ul>
+                        <br>
+                    </div>
+                </div>
+                <div>
+                    <iframe id="iframe_escolar" width="100%" height="520" frameborder="0" src="https://8wires.carto.com/builder/e4b9c8d4-6d4e-4de6-a87e-5a294d46378b/embed?state=%7B%22map%22%3A%7B%22ne%22%3A%5B40.62588779984547%2C0.509490987751633%5D%2C%22sw%22%3A%5B40.812198202619726%2C1.0121154994703832%5D%2C%22center%22%3A%5B40.71910818226077%2C0.760803243611008%5D%2C%22zoom%22%3A12%7D%7D" allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section bg-white" id="graph4">
+    <div class="container graph-section">
+        <div class="row">
+            <div class="col-md-12 section-header">
+                <p class="title"><i class="pe-7s-graph1"></i> Economia</p>
+            </div>
+
+            <div class="col-md-12 graph-text">
+                <p>
+                    Els ciutadans poden consultar a continuació les dades d'ingressos i despeses del municipi durant el darrer any, que es troben desglossades
+                    per capítols. Es mostren les dades pressupostades i les reals. També es mostra el percentatge de dones i d'homes aturats durant els darrers anys.
+                </p>
+            </div>
+        </div>
+
+        <h2 class="graph-section-title">Despeses i ingressos</h2>
+
+        <div class="row graph-unit-container" id="despeses">
+            <div class="col-md-12 graph-info t-left">
+                    <h3>Despeses pressupostades i reals</h3>
+                    <hr />
+            </div>
+            <div class="col-md-4 graph-info">
+                <p class="big-value">
+                        Any 2017
+                </p>
+                <p>
+                    Les despeses han sigut <b>inferiors</b> a la previsió en pràcticament la totalitat de capítols. El major percentatge de diners s'ha destinat a
+                    les despeses de personal. Les inversions reals han sigut menors que les pressupostades, mentre que les despeses corrents en béns i serveis
+                    han estat lleugerament superiors a les pressupostades.
+                </p>
+            </div>
+
+            <div class="col-md-8 graph-space">
+                <div class="row">
+                    <div class="col-md-2">
+
+                    </div>
+                    <div class="col-md-10">
+                        <ul class="graphOptions">
+                            <li data-title="Despeses pressupostades i reals" data-option="fulldata" data-toggle="modal" data-embed="despeses" data-div="despeses_graph" data-target="#exampleModalCenter" class="graph-options" data-json='{{ expenses_data_scaped |safe }}'>Veure dades <i class="pe-7s-server"></i></li>
+                            <li data-title="Despeses pressupostades i reals" data-option="saveImage" data-toggle="modal" data-embed="despeses" data-div="despeses_graph" data-target="#exampleModalCenter" class="graph-options" data-json='{{ expenses_data_scaped |safe }}'>Guardar imatge <i class="pe-7s-photo"></i></li>
+                            <li data-title="Despeses pressupostades i reals" data-option="shareGraph" data-toggle="modal" data-embed="despeses" data-div="despeses_graph" data-target="#exampleModalCenter" class="graph-options" data-json='{{ expenses_data_scaped |safe }}'>Compartir <i class="pe-7s-share"></i></li>
+                        </ul>
+                        <br>
+                    </div>
+                </div>
+                {% include "includes/despeses.html" %}
+            </div>
+        </div>
+
+        <div class="row graph-unit-container" id="ingressos">
+            <div class="col-md-12 graph-info t-left">
+                    <h3>Ingressos pressupostats i reals</h3>
+                    <hr />
+            </div>
+            <div class="col-md-4 graph-info">
+                <p class="big-value">
+                        Any 2017
+                </p>
+                <p>
+                    Els ingressos durant l'any 2017 han sigut <b>inferiors</b> a les previsions. S’ha ingressat més del previst en impostos directes, transferències corrents i ingressos patrimonials,
+                    mentre que a la resta de capítols s’ha ingressat menys del previst.
+                </p>
+                <br><br><br>
+            </div>
+
+            <div class="col-md-8 graph-space">
+                <div class="row">
+                    <div class="col-md-2">
+
+                    </div>
+                    <div class="col-md-10">
+                        <ul class="graphOptions">
+                            <li data-title="Ingressos pressupostats i reals" data-option="fulldata" data-toggle="modal" data-embed="ingressos" data-div="ingressos_graph" data-target="#exampleModalCenter" class="graph-options" data-json='{{ income_data_scaped |safe }}'>Veure dades <i class="pe-7s-server"></i></li>
+                            <li data-title="Ingressos pressupostats i reals" data-option="saveImage" data-toggle="modal" data-embed="ingressos" data-div="ingressos_graph" data-target="#exampleModalCenter" class="graph-options" data-json='{{ income_data_scaped |safe }}'>Guardar imatge <i class="pe-7s-photo"></i></li>
+                            <li data-title="Ingressos pressupostats i reals" data-option="shareGraph" data-toggle="modal" data-embed="ingressos" data-div="ingressos_graph" data-target="#exampleModalCenter" class="graph-options" data-json='{{ income_data_scaped |safe }}'>Compartir <i class="pe-7s-share"></i></li>
+                        </ul>
+                        <br>
+                    </div>
+                </div>
+                {% include "includes/ingressos.html" %}
+            </div>
+        </div>
+
+        <div class="row graph-unit-container" id="atur">
+            <div class="col-md-12 graph-info t-left">
+                <h3>Atur</h3>
+                <hr />
+            </div>
+            <div class="col-md-4 graph-info">
+                <p class="big-value">
+                        6,6% d'atur al 2017
+                </p>
+                <p>
+                    Des de l’any 2013, la <b>tendència general del percentatge d’atur és descendent</b>, tant per a homes com per a dones. S’observa, però, que l’atur 
+                    femení és més estable al llarg dels anys, mentre que el masculí és el que ha experimentat una variació més gran (era notablement superior al femení 
+                    l’any 2013, i va baixar fins a ser notablement inferior al femení l’any 2017). Durant aquests anys, l'atur femení ha baixat un <b>1.6%</b>, 
+                    mentre que el masculí ho ha fet un <b>5.3%</b>.
+                </p>
+                <br><br><br><br>
+            </div>
+
+            <div class="col-md-8 graph-space">
+                <div class="row">
+                    <div class="col-md-2">
+
+                    </div>
+                    <div class="col-md-10">
+                        <ul class="graphOptions">
+                            <li data-title="Atur" data-option="fulldata" data-toggle="modal" data-embed="atur" data-div="unemployment_graph" data-target="#exampleModalCenter" class="graph-options" data-json='{{ unemployment_data |safe }}'>Veure dades <i class="pe-7s-server"></i></li>
+                            <li data-title="Atur" data-option="saveImage" data-toggle="modal" data-embed="atur" data-div="unemployment_graph" data-target="#exampleModalCenter" class="graph-options" data-json='{{ unemployment_data |safe }}'>Guardar imatge <i class="pe-7s-photo"></i></li>
+                            <li data-title="Atur" data-option="shareGraph" data-toggle="modal" data-embed="atur" data-div="unemployment_graph" data-target="#exampleModalCenter" class="graph-options" data-json='{{ unemployment_data |safe }}'>Compartir <i class="pe-7s-share"></i></li>
+                        </ul>
+                        <br>
+                    </div>
+                </div>
+                {% include "includes/atur.html" %}
+            </div>
+        </div>
+
+
+    </div>
+</section>
+
+<section class="section bg-gray" id="graph5">
+    <div class="container graph-section">
+        <div class="row">
+            <div class="col-md-12 section-header">
+                <p class="title"><i class="pe-7s-culture"></i> Administració</p>
+            </div>
+
+            <div class="col-md-12 graph-text">
+                <p>
+                    A continuació es mostren dades administratives de Deltebre, com ara l'adjudicació de contractes oberts i menors durant el darrer any, així com els resultats de les eleccions autonòmiques i generals dels últims anys.
+                </p>
+            </div>
+        </div>
+
+        <div class="row graph-unit-container" id="oberts1">
+                <div class="col-md-12 graph-info t-left">
+                    <h3>Contractes oberts</h3>
+                    <hr />
+                    <p>
+                            Durant l’any 2017, el contracte més important té un valor de 2.385.586.23€ i correspon a l’adjudicació del contracte administratiu d’obres 
+                            referent al “Projecte Fase III de les obres d’urbanització de Riumar Zona V”, que queda a càrrec de l’empresa “ACSA Obras e Infraestructuras 
+                            S.A.”. També s’han adjudicat contractes més petits (amb valors al voltant dels 150.000€) per al manteniment d’instal·lacions esportives i de 
+                            zones verdes, rotondes, voreres i altres espais verds i/o públics, així com per a l’asfaltat d’algunes vies públiques. Finalment, hi ha un 
+                            contracte petit d’uns 5.000€ referent a serveis d’instal·lació i logística per a les festes de 2017.
+                    </p>
+                </div>
+    
+                <div class="col-md-12 graph-space">
+                    <div class="row">
+                        <div class="col-md-2">
+    
+                        </div>
+                        <div class="col-md-10">
+                            <ul class="graphOptions">
+                                <li data-title="Contractes oberts" data-option="fulldata" data-toggle="modal" data-embed="contractes" data-div="minors_graph" data-target="#exampleModalCenter" class="graph-options" data-json='{{ minors_data |safe }}'>Veure dades <i class="pe-7s-server"></i></li>
+                                <li data-title="Contractes oberts" data-option="saveImage" data-toggle="modal" data-embed="contractes" data-div="minors_graph" data-target="#exampleModalCenter" class="graph-options" data-json='{{ minors_data |safe }}'>Guardar imatge <i class="pe-7s-photo"></i></li>
+                                <li data-title="Contractes oberts" data-option="shareGraph" data-toggle="modal" data-embed="contractes" data-div="minors_graph" data-target="#exampleModalCenter" class="graph-options" data-json='{{ minors_data |safe }}'>Compartir <i class="pe-7s-share"></i></li>
+                            </ul>
+                            <br>
+                        </div>
+                    </div>
+                    {% include "includes/contractes.html" %}
+                </div>
+            </div>
+       
+
+        <div class="row graph-unit-container" id="menors">
+            <div class="col-md-12 graph-info t-left">
+                <h3>Contractes menors</h3>
+                <hr />
+            </div>
+            <div class="col-md-4 graph-info">
+                <p class="big-value">
+                        848.385€ l'any 2017
+                </p>
+                <p>
+                    Durant l’any 2017 es van adjudicar <b>105</b> contractes menors per un valor total de <b>848.384,58€</b>, dels quals 50 es van adjudicar al segon 
+                    trimestre de l’any, per un valor total de 478.711,06€. La despesa en contractes menors als altres 3 trimestres ha suposat al voltant dels 
+                    120.000€ per trimestre.
+                </p>
+                <br><br><br><br>
+            </div>
+
+            <div class="col-md-8 graph-space">
+                <div class="row">
+                    <div class="col-md-2">
+
+                    </div>
+                    <div class="col-md-10">
+                        <ul class="graphOptions">
+                            <li data-title="Contractes menors" data-option="fulldata" data-toggle="modal" data-embed="menors" data-div="minors_graph" data-target="#exampleModalCenter" class="graph-options" data-json='{{ minors_data |safe }}'>Veure dades <i class="pe-7s-server"></i></li>
+                            <li data-title="Contractes menors" data-option="saveImage" data-toggle="modal" data-embed="menors" data-div="minors_graph" data-target="#exampleModalCenter" class="graph-options" data-json='{{ minors_data |safe }}'>Guardar imatge <i class="pe-7s-photo"></i></li>
+                            <li data-title="Contractes menors" data-option="shareGraph" data-toggle="modal" data-embed="menors" data-div="minors_graph" data-target="#exampleModalCenter" class="graph-options" data-json='{{ minors_data |safe }}'>Compartir <i class="pe-7s-share"></i></li>
+                        </ul>
+                        <br>
+                    </div>
+                </div>
+                {% include "includes/menors.html" %}
+            </div>
+        </div>
+
+        <div class="col-md-12_taula">
+            {% include "includes/taula_menors.html" %}
+        </div><br><br>
+
+        <div class="row graph-unit-container" id="eleccions">
+            <div class="col-md-12 graph-info t-left">
+                <h3>Eleccions autonòmiques</h3>
+                <hr />
+            </div>
+            <div class="col-md-4 graph-info">
+                <p class="big-value">
+                        Resultats
+                </p>
+                <p>
+                    Tot i la lleugera disminució del cens entre les eleccions de 2015 i les de 2017 (8.774 i 8.721 censats, respectivament), hi va haver un
+                    <b>augment notable de la participació</b> a les darreres eleccions (6.573 votants, front als 6.025 a les eleccions de 2015).
+                </p>
+            </div>
+
+            <div class="col-md-8 graph-space">
+                <div class="row">
+                    <div class="col-md-2">
+
+                    </div>
+                    <div class="col-md-10">
+                        <ul class="graphOptions">
+                            <li data-title="Eleccions autonòmiques" data-option="fulldata" data-toggle="modal" data-embed="a21d17" data-div="A21D17_graph" data-target="#exampleModalCenter" class="graph-options" data-json='{{ elections_data_scaped.A21D17 |safe }}'>Veure dades <i class="pe-7s-server"></i></li>
+                            <li data-title="Eleccions autonòmiques" data-option="saveImage" data-toggle="modal" data-embed="a21d17" data-div="A21D17_graph" data-target="#exampleModalCenter" class="graph-options" data-json='{{ elections_data_scaped.A21D17 |safe }}'>Guardar imatge <i class="pe-7s-photo"></i></li>
+                            <li data-title="Eleccions autonòmiques" data-option="shareGraph" data-toggle="modal" data-embed="a21d17" data-div="A21D17_graph" data-target="#exampleModalCenter" class="graph-options" data-json='{{ elections_data_scaped.A21D17 |safe }}'>Compartir <i class="pe-7s-share"></i></li>
+                        </ul>
+                        <br>
+                    </div>
+                </div>
+                {% include "includes/a21d17.html" %}
+                &nbsp;<br><br>
+                <div class="row">
+                    <div class="col-md-2">
+
+                    </div>
+                    <div class="col-md-10">
+                        <ul class="graphOptions">
+                            <li data-title="Eleccions autonòmiques" data-option="fulldata" data-toggle="modal" data-embed="a27s15" data-div="A27S15_graph" data-target="#exampleModalCenter" class="graph-options" data-json='{{ elections_data_scaped.A27S15 |safe }}'>Veure dades <i class="pe-7s-server"></i></li>
+                            <li data-title="Eleccions autonòmiques" data-option="saveImage" data-toggle="modal" data-embed="a27s15" data-div="A27S15_graph" data-target="#exampleModalCenter" class="graph-options" data-json='{{ elections_data_scaped.A27S15 |safe }}'>Guardar imatge <i class="pe-7s-photo"></i></li>
+                            <li data-title="Eleccions autonòmiques" data-option="shareGraph" data-toggle="modal" data-embed="a27s15" data-div="A27S15_graph" data-target="#exampleModalCenter" class="graph-options" data-json='{{ elections_data_scaped.A27S15 |safe }}'>Compartir <i class="pe-7s-share"></i></li>
+                        </ul>
+                        <br>
+                    </div>
+                </div>
+                {% include "includes/a27s15.html" %}
+            </div>
+        </div>
+
+        <div class="row graph-unit-container">
+            <div class="col-md-12 graph-info t-left">
+                <h3>Eleccions generals</h3>
+                <hr />
+            </div>
+            <div class="col-md-4 graph-info">
+                <p class="big-value">
+                        Resultats
+                </p>
+                <p>
+                    A més de la lleugera disminució del cens entre les eleccions de 2015 i les de 2016 (8.765 i 8.737 censats, respectivament), hi va haver una
+                    <b>disminució notable de la participació</b> a les darreres eleccions (4.703 votants, front als 5.316 a les eleccions de 2015).
+                </p>
+            </div>
+
+            <div class="col-md-8 graph-space">
+                <div class="row">
+                    <div class="col-md-2">
+
+                    </div>
+                    <div class="col-md-10">
+                        <ul class="graphOptions">
+                            <li data-title="Eleccions generals" data-option="fulldata" data-toggle="modal" data-embed="g26j16" data-div="G26J16_graph" data-target="#exampleModalCenter" class="graph-options" data-json='{{ elections_data_scaped.G26J16 |safe }}'>Veure dades <i class="pe-7s-server"></i></li>
+                            <li data-title="Eleccions generals" data-option="saveImage" data-toggle="modal" data-embed="g26j16" data-div="G26J16_graph" data-target="#exampleModalCenter" class="graph-options" data-json='{{ elections_data_scaped.G26J16 |safe }}'>Guardar imatge <i class="pe-7s-photo"></i></li>
+                            <li data-title="Eleccions generals" data-option="shareGraph" data-toggle="modal" data-embed="g26j16" data-div="G26J16_graph" data-target="#exampleModalCenter" class="graph-options" data-json='{{ elections_data_scaped.G26J16 |safe }}'>Compartir <i class="pe-7s-share"></i></li>
+                        </ul>
+                        <br>
+                    </div>
+                </div>
+                {% include "includes/g26j16.html" %}
+                <br><br>
+                <div class="row">
+                    <div class="col-md-2">
+
+                    </div>
+                    <div class="col-md-10">
+                        <ul class="graphOptions">
+                            <li data-title="Eleccions generals" data-option="fulldata" data-toggle="modal" data-embed="g20d15" data-div="G20D15_graph" data-target="#exampleModalCenter" class="graph-options" data-json='{{ elections_data_scaped.G20D15 |safe }}'>Veure dades <i class="pe-7s-server"></i></li>
+                            <li data-title="Eleccions generals" data-option="saveImage" data-toggle="modal" data-embed="g20d15" data-div="G20D15_graph" data-target="#exampleModalCenter" class="graph-options" data-json='{{ elections_data_scaped.G20D15 |safe }}'>Guardar imatge <i class="pe-7s-photo"></i></li>
+                            <li data-title="Eleccions generals" data-option="shareGraph" data-toggle="modal" data-embed="g20d15" data-div="G20D15_graph" data-target="#exampleModalCenter" class="graph-options" data-json='{{ elections_data_scaped.G20D15 |safe }}'>Compartir <i class="pe-7s-share"></i></li>
+                        </ul>
+                        <br>
+                    </div>
+                </div>
+                {% include "includes/g20d15.html" %}
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+<footer class="section footer bg-black">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <h5 class="footer-heading"><strong>Deltebre</strong></h5>
+                <p class="footer-desc">Aquest projecte ha sigut impulsat per l'Ajuntament de Deltebre.</p>
+                <p class="footer-desc pt-0">Amb aquesta iniciativa posen el seu granet de sorra en la importància de la visualització de dades obertes.</p>
+            </div>
+
+            <div class="col-md-5">
+            </div>
+
+            <div class="col-md-3 custom-links">
+                <p class="footer-heading">8wires</p>
+                <ul class="list-unstyled company-sub-menu">
+                    <li><a href="http://8wires.io/about/">About Us</a></li>
+                    <li><a href="https://medium.com/8wires">Blog</a></li>
+                    <li><a href="mailto:8wires@8wires.io">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-alt mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="mb-0">2018 © 8WS. All Rights Reserved</p>
+                </div>
+                <div class="col-md-6 t-right">
+                    <p class="mb-0">Made with<span style="color: #dc3545"> ♥ </span> by&nbsp;  
+                        <a href="http://8wires.io">
+                            <img src="../static/assets/images/logo.png" height="36" align="bottom"/>
+                        </a> 
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+<script src="../static/assets/js/jquery.min.js"></script>
+<script src="../static/assets/js/jquery.easing.min.js"></script>
+<script src="../static/assets/js/popper.min.js"></script>
+<script src="../static/assets/js/bootstrap.min.js"></script>
+<script src="../static/assets/js/scrollspy.min.js" type="text/javascript"></script>
+<script src="../static/assets/js/app.js" type="text/javascript"></script>
+<script src="../static/assets/js/graph_options.js" type="text/javascript"></script>
+</body>
+</html>

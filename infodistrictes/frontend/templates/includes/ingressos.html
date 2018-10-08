@@ -1,0 +1,117 @@
+<div id="ingressos_graph"></div>
+
+<script>
+
+    data = {{ income_data |safe }};
+    make_viz_ingressos_pressupostats(data);
+    make_viz_ingressos_reals(data);
+
+    var es_ES = {
+        "decimal": ",",
+        "thousands": ".",
+        "grouping": [3],
+        "currency": ["€", ""],
+        "dateTime": "%a %b %e %X %Y",
+        "date": "%d/%m/%Y",
+        "time": "%H:%M:%S",
+        "periods": ["AM", "PM"],
+        "days": ["Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"],
+        "shortDays": ["Dom", "Lun", "Mar", "Mi", "Jue", "Vie", "Sab"],
+        "months": ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"],
+        "shortMonths": ["Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Ago", "Sep", "Oct", "Nov", "Dic"]
+    };
+
+    var es_delt = d3.locale(es_ES);
+
+    var numberFormat = es_delt.numberFormat(",.0f");
+
+    function make_viz_ingressos_reals(data){
+        var visualization = d3plus.viz()
+            .container("#ingressos_graph")
+            .data(data)
+            .type("tree_map")
+            .id(["Capítol", "Concepte"])
+            .depth(1)
+            .size("Real")
+            .font({ "family": "Raleway",
+                "size": 14,
+                "color": "black"
+            })
+            .title({
+                value: "Ingressos reals",
+                "font": {"size": 18}
+            })
+            .tooltip(["Capítol","Concepte","Real"])
+            .legend(false)
+            .format({
+                "text": function(text,key){
+                    if (text=="share"){
+                        return "Percentatge";
+                    } else{
+                        return text.charAt(0).toUpperCase() + text.substr(1).toLowerCase()
+                    }
+                },
+                "number": function(number, params) {
+                    if (params.key === "Real" || params.key === "Pressupostat") {
+                        return numberFormat(number) + " €";
+                    }
+                    else {
+                        return number.toFixed(1) + "%";
+                    }
+                }
+            })
+            .color("Color")
+            .labels({"align": "left", "valign": "top"})
+            .time({
+            "value": "Any",
+            "solo": 2017
+            })
+            .timeline({"align": "middle"})
+            .draw()
+    }
+
+    function make_viz_ingressos_pressupostats(data){
+        var visualization = d3plus.viz()
+            .container("#ingressos_graph")
+            .data(data)
+            .type("tree_map")
+            .id(["Capítol", "Concepte"])
+            .depth(1)
+            .size("Pressupostat")
+            .font({ "family": "Raleway",
+                "size": 14,
+                "color": "black"
+            })
+            .title({
+                value: "Ingressos pressupostats",
+                "font": {"size": 18}
+            })
+            .tooltip(["Capítol","Concepte","Pressupostat"])
+            .legend(false)
+            .format({
+                "text": function(text,key){
+                    if (text=="share"){
+                        return "Percentatge";
+                    } else{
+                        return text.charAt(0).toUpperCase() + text.substr(1).toLowerCase()
+                    }
+                },
+                "number": function(number, params) {
+                    if (params.key === "Real" || params.key === "Pressupostat") {
+                        return numberFormat(number) + " €";
+                    }
+                    else {
+                        return number.toFixed(1) + "%";
+                    }
+                }
+            })
+            .color("Color")
+            .labels({"align": "left", "valign": "top"})
+            .time({
+            "value": "Any",
+            "solo": 2017
+            })
+            .timeline({"align": "middle"})
+            .draw()
+    }
+</script>

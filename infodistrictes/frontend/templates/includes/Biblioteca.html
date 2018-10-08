@@ -1,0 +1,89 @@
+<!doctype html>
+<meta charset="utf-8">
+
+<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+
+<script src="https://d3plus.org/js/d3.js"></script>
+<script src="https://d3plus.org/js/d3plus.js"></script>
+
+<div id="viz"></div>
+
+<script>
+  d3.csv("https://raw.githubusercontent.com/pauturvalles/deltebre/master/csv/Biblioteca.csv", function(error, data) {
+   if (error) return console.error(error);
+   // Coerce data values to be numeric
+   data.forEach(function(d) {
+     d3.keys(d).forEach(function(k) {
+       if (k !== "Concepte" && k!=="Color" && k!=="Any") {
+         d[k] = +d[k]
+       }
+     })
+   })
+   make_viz(data);
+ });
+
+     var es_ES = {
+        "decimal": ",",
+        "thousands": ".",
+        "grouping": [3],
+        "currency": ["€", ""],
+        "dateTime": "%a %b %e %X %Y",
+        "date": "%d/%m/%Y",
+        "time": "%H:%M:%S",
+        "periods": ["AM", "PM"],
+        "days": ["Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"],
+        "shortDays": ["Dom", "Lun", "Mar", "Mi", "Jue", "Vie", "Sab"],
+        "months": ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"],
+        "shortMonths": ["Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Ago", "Sep", "Oct", "Nov", "Dic"]
+    };
+
+    var es_delt = d3.locale(es_ES);
+
+    var numberFormat = es_delt.numberFormat(",.0f");
+
+  function make_viz(data){
+    var visualization = d3plus.viz()
+    .container("#viz")
+    .data(data)
+    .type("bar")
+    .id("Any")
+    .x({
+      "value": "Concepte",
+      "grid": false,
+      "label": false
+    })
+    .y({
+      "value": "Recompte",
+      "grid": false,
+      "ticks": [5000,10000,15000,20000,25000,30000]
+    })
+    .format({
+      "text": function(text,key){
+        return text;
+      },
+      "number": function(number, params) {
+        if (params.key === "Recompte") {
+            return numberFormat(number);
+        }
+        else {
+            return number;
+        }
+
+      }
+    })
+    .title({
+      value: "Usuaris anuals de la Biblioteca",
+                "font": {"size": 18}
+      })
+    .color("Color")
+    .order(function(d) {
+                return ["Visites bloc", "Visites web", "Usuaris internet", "Préstecs", "Usuaris préstec", "Usuaris biblioteca"].indexOf(d.Concepte)}
+            )
+    .font({ "family": "Raleway",
+                "size": 14,
+                "color": "black"
+            })
+    .legend({"size": 50, "order": "id", "data": false})
+    .draw()
+  }
+</script>
