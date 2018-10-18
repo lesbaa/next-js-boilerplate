@@ -14,19 +14,21 @@ A project set-up for using [Next.js](https://nextjs.org/) to build universal js 
 
 ## Getting going
 
-To run the dev environment: `npm run dev` and go to `http://localhost:8080`
+This project uses yarn as a dependency manager.
+
+To run the dev environment: `yarn dev` and go to `http://localhost:8080`
 
 To run the dev environment in https mode follow the instructions below and then `npm run dev:https` and go to `https://localhost:8080`
 Redux dev tools freaks out on mobile browsers, to run without redux dev tools `npm run dev:no-redux`
 
 This app uses [next.js](https://github.com/zeit/next.js/) to render the React app server side and serve this to the client along with the application bundle.
 
-Use `npm install` to install all dependencies
-Use `npm add <pkg>` to add a package to your dependencies.
+Use `yarn install` to install all dependencies
+Use `yarn add <pkg>` to add a package to your dependencies.
 Use the `--dev` flag for devDependencies.
 
 Debugging on a non-chrome browser?
-`npm install -g react-devtools`
+`yarn global add react-devtools`
 `react-devtools`
 
 This app requires development on node v8.0+
@@ -41,14 +43,14 @@ In some instances hitting up a remote JSON endpoint may lead to CORS requests, t
 
 In order to set-up https locally, you'll need to do the following (this only works on OSX, it will be different on Linux, Windows etc):
   - create a folder within `/server` called `dev-https`
-  - `npm run https:gen-dev-conf email=<youremail> domain=stv.<you>`, this will generate a config file within the above folder
-  - `npm run https:gen-dev-cert`, this will ask you some questions and then generate a certificate and key in the dev-https folder, the default values should suffice.
-  - restart the app using `npm run dev:https` and visit the site (make sure your are visiting it in https)
+  - `yarn https:gen-dev-conf email=<youremail> domain=stv.<you>`, this will generate a config file within the above folder
+  - `yarn https:gen-dev-cert`, this will ask you some questions and then generate a certificate and key in the dev-https folder, the default values should suffice.
+  - restart the app using `yarn dev:https` and visit the site (make sure your are visiting it in https)
   - dev tools > security > overview > view certificate
   - drag the certificate icon to the desktop and doubleclick on it, this will open up keychain access.
   - drag the certificate icon to `login`, open up log-in and double click on the certificate (it should be named stv.les / stv.jon or similar)
   - open up the `trust` dropdown and select `always trust`
-  - close the window, restart the app using `npm run dev:https`, close the browser tab and re-open it with the app running (again, make sure it's https in the url), you should now have full local https
+  - close the window, restart the app using `yarn dev:https`, close the browser tab and re-open it with the app running (again, make sure it's https in the url), you should now have full local https
 
 ## Development
 

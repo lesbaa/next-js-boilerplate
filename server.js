@@ -19,6 +19,10 @@ const dev =
   process.env.NODE_ENV === 'development' ||
   process.env.NODE_ENV !== 'production'
 
+const DEV_HTTPS =
+  dev &&
+  process.env.DEV_HTTPS === 'true'
+
 const app = nextApp({ dev })
 
 const handle = app.getRequestHandler()
@@ -85,7 +89,7 @@ app.prepare().then(() => {
 
   server.get('*', handle)
 
-  if (dev) {
+  if (DEV_HTTPS) {
     const fs = require('fs')
 
     const cert = fs.readFileSync('server/dev-https/local_https.dev.crt', 'utf-8')

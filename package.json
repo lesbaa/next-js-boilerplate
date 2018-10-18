@@ -5,6 +5,7 @@
   "main": "server.js",
   "scripts": {
     "dev": "NODE_ENV=dev nodemon --watch server.js --watch next.config.js --watch .babelrc --watch server/ --watch package.json server.js",
+    "dev:https": "NODE_ENV=dev DEV_HTTPS=true nodemon --watch server.js --watch next.config.js --watch .babelrc --watch server/ --watch package.json server.js",
     "start": "NODE_ENV=production node server.js",
     "build": "next build",
     "test:watch": "NODE_ENV=test jest --watch --coverage",
