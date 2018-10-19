@@ -16,7 +16,7 @@ const PageWrapper = ({
   >
     <Loader />
     <PageHead
-      title={`Les Moffat | ${title}`}
+      title={'TODO INFODISTRICTES'}
     />
     {children}
     <style jsx>{styles}</style>

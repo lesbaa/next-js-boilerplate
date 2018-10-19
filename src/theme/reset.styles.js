@@ -17,7 +17,8 @@ export default css`
 
   body {
     width: 100%;
-    height: 100%;
+    height: auto;
+    min-height: 100vh;
     color: #353535;
     overflow-x: hidden;
     font-family: 'RobotoMono', sans-serif;

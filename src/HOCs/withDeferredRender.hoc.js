@@ -1,5 +1,11 @@
 /* eslint-disable no-confusing-arrow */
 /* global window requestIdleCallback requestAnimationFrame setTimeout */
+/**
+ * this HOC returns a wrapped component that only renders when the
+ * main thread becomes free using requestIdleCallback or
+ * on older browsers pushing the render task to the end of the task queue
+ * using setTimeout
+ */
 
 import React, { Component } from 'react'
 

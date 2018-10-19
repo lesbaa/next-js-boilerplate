@@ -25,6 +25,7 @@ const DEV_HTTPS =
 
 const app = nextApp({ dev })
 
+// this deals with serving the static bundle js assets
 const handle = app.getRequestHandler()
 
 const server = express()
@@ -49,6 +50,8 @@ server.use(
   })
 )
 
+// this is what renders the react app on the server side
+// and bundles the react app for use on the client
 const nextAppHandler = pageComponentPath => async (req, res, next, UAIsMobile = false) => {
   const cached = cache.get(req.originalUrl)
   if (cached && req.query.nocache !== 'true' && !dev) {
@@ -57,14 +60,24 @@ const nextAppHandler = pageComponentPath => async (req, res, next, UAIsMobile = 
     return
   }
 
-  const { basePath } = req.params
+  const {
+    pathPrimary,
+    pathSecondary,
+    pathTertiary,
+  } = req.params
+
+  // render the react app to html
+  // the arguments below are passed to the getInitialProps
+  // method in each page component
   const markup = await app.renderToHTML(
     req,
     res,
     pageComponentPath,
     {
       ...req.query,
-      basePath,
+      pathPrimary,
+      pathSecondary,
+      pathTertiary,
     }
   )
 
@@ -80,7 +93,8 @@ app.prepare().then(() => {
     })
   )
 
-  // the next app handler will
+  // routing
+  // TODO move this to a serperate config when there are more pages / routes
   server.get('/:pathPrimary', nextAppHandler('/index'))
   server.get('/:pathPrimary/:pathSecondary', nextAppHandler('/index'))
   server.get('/:pathPrimary/:pathSecondary/:pathTertiary', nextAppHandler('/index'))
@@ -89,6 +103,8 @@ app.prepare().then(() => {
 
   server.get('*', handle)
 
+  // this is only used if the DEV_HTTPS runtime flag is set to 'true'
+  // read the readme before running in this mode!
   if (DEV_HTTPS) {
     const fs = require('fs')
 

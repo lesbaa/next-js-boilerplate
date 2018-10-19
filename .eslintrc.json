@@ -8,6 +8,11 @@
           "experimentalObjectRestSpread": true
       }
     },
+    "settings": {
+      "import/resolver": {
+        "babel-module": {}
+      }
+    },
     "extends": "airbnb",
       // full list of airbnb rules here => https://gist.github.com/eddywashere/3ad627a827ece50e349a
     "rules": {
@@ -47,7 +52,7 @@
       "import/extensions": 0,
       "jsx-a11y/anchor-is-valid": 0,
       "jsx-a11y/label-has-for": 0,
-      // absolute paths resolve to /app so warnings are not needed
+      // absolute paths resolve to /src so warnings are not needed
       "import/no-absolute-path": 0,
       "react/jsx-one-expression-per-line": 0,
       "react/no-array-index-key": 0,

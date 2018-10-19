@@ -9,49 +9,15 @@ const PageHead = ({
 }) => (
   <div className="PageHead">
     <Head>
-      <title>{title.replace(/(<([^>]+)>)/ig, '')}</title>
-      <link
-        rel="preload"
-        href="/static/fonts/LeagueSpartan-Bold.subset.woff"
-        as="font"
-        type="font/woff"
-        crossOrigin
-      />
-      <link
-        rel="preload"
-        as="font"
-        type="font/woff"
-        href="/static/fonts/RobotoMono-Thin.subset.woff"
-        crossOrigin
-      />
-      <link
-        rel="preload"
-        as="font"
-        type="font/woff"
-        href="/static/fonts/RobotoMono-ThinItalic.subset.woff"
-        crossOrigin
-      />
-      <link
-        rel="preload"
-        as="font"
-        type="font/woff"
-        href="/static/fonts/RobotoMono-Light.subset.woff"
-        crossOrigin
-      />
-      <link
-        rel="preload"
-        as="font"
-        type="font/woff"
-        href="/static/fonts/RobotoMono-LightItalic.subset.woff"
-        crossOrigin
-      />
+      <title>{title}</title>
+
       <meta charSet="utf-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <meta name="theme-color" content="#F7F7F7" />
       <meta name="twitter:card" content="summary" />
-      <meta name="twitter:site" content="http://lesmoffat.co.uk/cv" />
+      <meta name="twitter:site" content="TODO INFODISTRICTES" />
       <meta name="twitter:image" content="/static/favicons/og-image.jpg" />
-      <meta name="twitter:title" content="Purveyor of fine JavaScripts and other web wares." />
+      <meta name="twitter:title" content="TODO INFODISTRICTES" />
       <meta name="twitter:app:country" content="PT" />
       <link rel="manifest" href="/static/manifest.json" />
       <link rel="apple-touch-icon" sizes="57x57" href="/static/favicons/apple-icon-57x57.png" />
@@ -73,9 +39,9 @@ const PageHead = ({
       <meta property="og:image" content="/static/og-image.jpg" />
       <meta property="og:image:width" content="201" />
       <meta property="og:image:height" content="201" />
-      <meta property="og:title" content="Les Moffat | Javascript Developer" />
-      <meta property="og:description" content="Purveyor of fine JavaScripts and other web wares." />
-      <meta property="og:url" content="http://lesmoffat.co.uk/cv" />
+      <meta property="og:title" content="TODO INFODISTRICTES" />
+      <meta property="og:description" content="TODO INFODISTRICTES" />
+      <meta property="og:url" content="TODO INFODISTRICTES" />
       <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
       <meta name="HandheldFriendly" content="True" />
       <meta name="MobileOptimized" content="320" />

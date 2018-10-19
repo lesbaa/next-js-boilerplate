@@ -4,7 +4,7 @@
 import React, { Component } from 'react'
 import Link from 'next/link'
 import PropTypes from 'prop-types'
-import styles from '~/theme/index.styles'
+import styles from '~/theme/DemoTwo.styles'
 import PageWrapper from '~/components/PageWrapper'
 
 class IndexPage extends Component {
@@ -29,7 +29,7 @@ class IndexPage extends Component {
       <main
         className="main"
       >
-        Hiya!
+        
       </main>
       <style jsx>{styles}</style>
     </PageWrapper>
