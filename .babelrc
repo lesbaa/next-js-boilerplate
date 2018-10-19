@@ -25,7 +25,7 @@
     "test": {
       "presets": [["next/babel", {"preset-env": {"modules": "commonjs"}}]]
     },
-    "live": {
+    "production": {
       "plugins": [
         "transform-react-remove-prop-types"
       ]
