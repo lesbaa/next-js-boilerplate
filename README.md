@@ -1,5 +1,5 @@
-InfoDistrictes
-==============
+Next.js Boilerplate
+===================
 
 ## Overview
 
