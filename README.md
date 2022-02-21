@@ -1,5 +1,7 @@
-Next.js Boilerplate
-===================
+# This is now out of date, use create-next-app instead...
+
+## Next.js Boilerplate
+
 
 ## Overview
 
